@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">calendario_mascota</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_detalle_evento">MainActivity</string>
+    <string name="Registro">Registrarse</string>
+    <string name="OlvideMiContrasena">¿Ovido su Contraseña?</string>
+    <string name="ingresar">Aceder</string>
+    <string name="action_settings">action_settings</string>
+    <string name="title_activity_registro">RegistroActivity</string>
+    <string name="lb_reg_nombre">Nombre</string>
+    <string name="lb_reg_usuario">Usuario</string>
+    <string name="lb_reg_pass">Contraseña</string>
+    <string name="lb_reg_pass2"> Repita su contraseña</string>
+    <string name="lb_reg_email">Email</string>
+    <string name="lb_reg_fecha_nacimiento">Ingrese la fecha de nacimiento</string>
+    <string name="lb_reg_apellido_paterno">Apellido Paterno</string>
+    <string name="lb_reg_apellido_materno">Apellido Materno</string>
+    <string name="login">Pantalla de inicio</string>
+
+</resources>
