@@ -4,6 +4,8 @@ import java.util.List;
 import com.example.calendario_mascota.R;
 import com.example.calendario_mascota.lib.EventoAdapter;
 import com.example.calendario_mascota.db.Calendario_MascotaDataSource;
+import com.exemple.calendario_mascota.tablas.Evento;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;

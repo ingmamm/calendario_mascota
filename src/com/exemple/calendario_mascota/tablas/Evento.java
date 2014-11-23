@@ -1,10 +1,10 @@
-package com.example.calendario_mascota;
+package com.exemple.calendario_mascota.tablas;
 
 
 public class Evento {
 	
-	int id_evento, id_mascota;
-	String  tipo, descripcion, fecha_string, fecha;
+	private int id_evento, id_mascota;
+	private String  tipo, descripcion, fecha;
 	
 	@Override
 	public String toString() {

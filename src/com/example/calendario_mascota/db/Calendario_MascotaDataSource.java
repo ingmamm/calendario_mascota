@@ -7,8 +7,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.calendario_mascota.Evento;
 import com.example.calendario_mascota.db.Calendario_MascotasDBOpenHelper;
+import com.exemple.calendario_mascota.tablas.Evento;
 
 public class Calendario_MascotaDataSource {
 	

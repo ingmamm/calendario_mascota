@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AgregarEventoActivity extends Activity {
+public class AgregarMascotaActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_agregar_evento);
+		setContentView(R.layout.activity_agregar_mascota);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -19,7 +19,7 @@ public class AgregarEventoActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.agregar_evento, menu);
+		getMenuInflater().inflate(R.menu.agregar_mascota, menu);
 		return true;
 	}
 

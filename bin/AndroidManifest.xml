@@ -38,6 +38,10 @@
             android:name=".AgregarEventoActivity"
             android:label="@string/title_activity_agregar_evento" >
         </activity>
+        <activity
+            android:name=".AgregarMascotaActivity"
+            android:label="@string/title_activity_agregar_mascota" >
+        </activity>
     </application>
 
 </manifest>
