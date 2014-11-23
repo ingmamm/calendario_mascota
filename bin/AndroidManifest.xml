@@ -42,6 +42,10 @@
             android:name=".AgregarMascotaActivity"
             android:label="@string/title_activity_agregar_mascota" >
         </activity>
+        <activity
+            android:name=".PerfilActivity"
+            android:label="@string/title_activity_perfil" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,7 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.calendario_mascota.MenuActivity" >
-
+	
+    <item
+        android:id="@+id/perfil"
+        android:orderInCategory="100"
+        android:title="@string/perfil"
+        android:icon="@drawable/ic_action_perfil"
+        android:showAsAction="always"/>
+    
     <item
         android:id="@+id/agregar"
         android:orderInCategory="100"

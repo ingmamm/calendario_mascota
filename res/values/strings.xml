@@ -10,6 +10,7 @@
     <string name="razaMascota">Raza de la Mascota</string>
     <string name="fechaNacimientoMascota">Fecha de Nacimernto</string>
     <string name="aceptar">Aceptar</string>
+    <string name="perfil">Perfil</string>
     <string name="agregar">Agregar Evento</string>
     <string name="agregar_mascota">Agregar Mascota</string>
     <string name="deslogueo">Deslogueo</string>
@@ -21,5 +22,6 @@
     <string name="title_activity_detalle_evento">Detalle del Evento</string>
     <string name="title_activity_agregar_evento">Agregar Evento</string>
     <string name="title_activity_agregar_mascota">Agregar Mascota</string>
+    <string name="title_activity_perfil">Perfil</string>
 
 </resources>
