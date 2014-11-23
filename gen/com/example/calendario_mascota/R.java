@@ -22,10 +22,39 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_action_agregar=0x7f020000;
-        public static final int ic_action_deslogueo=0x7f020001;
-        public static final int ic_action_quitar=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
+        public static final int caballo=0x7f020000;
+        public static final int capsule_icon=0x7f020001;
+        public static final int conejo=0x7f020002;
+        public static final int gato=0x7f020003;
+        public static final int healthcare_syringe_icon=0x7f020004;
+        public static final int ic_action_agregar=0x7f020005;
+        public static final int ic_action_communication_vpn_key=0x7f020006;
+        public static final int ic_action_conejo=0x7f020007;
+        public static final int ic_action_content_add=0x7f020008;
+        public static final int ic_action_content_discard=0x7f020009;
+        public static final int ic_action_content_new=0x7f02000a;
+        public static final int ic_action_content_save=0x7f02000b;
+        public static final int ic_action_deslogueo=0x7f02000c;
+        public static final int ic_action_gato=0x7f02000d;
+        public static final int ic_action_healthcare_syringe_icon=0x7f02000e;
+        public static final int ic_action_medico=0x7f02000f;
+        public static final int ic_action_pato=0x7f020010;
+        public static final int ic_action_perro=0x7f020011;
+        public static final int ic_action_pez=0x7f020012;
+        public static final int ic_action_quitar=0x7f020013;
+        public static final int ic_action_rana=0x7f020014;
+        public static final int ic_action_registro=0x7f020015;
+        public static final int ic_action_remedio=0x7f020016;
+        public static final int ic_action_tortuga=0x7f020017;
+        public static final int ic_launcher=0x7f020018;
+        public static final int medico=0x7f020019;
+        public static final int pato=0x7f02001a;
+        public static final int perro=0x7f02001b;
+        public static final int pez=0x7f02001c;
+        public static final int rana=0x7f02001d;
+        public static final int remedio=0x7f02001e;
+        public static final int sthetoscope_icon=0x7f02001f;
+        public static final int tortuga=0x7f020020;
     }
     public static final class id {
         public static final int action_settings=0x7f08000d;
