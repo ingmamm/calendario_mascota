@@ -8,4 +8,18 @@
         android:title="@string/agregar"
         android:icon="@drawable/ic_action_agregar"
         android:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/agregar_mascota"
+        android:orderInCategory="100"
+        android:title="@string/agregar_mascota"
+        android:icon="@drawable/ic_action_agregar"
+        android:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/deslogueo"
+        android:orderInCategory="100"
+        android:title="@string/deslogueo"
+        android:icon="@drawable/ic_action_deslogueo"
+        android:showAsAction="always"/>
 </menu>

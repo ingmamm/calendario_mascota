@@ -56,14 +56,18 @@ public class MenuActivity extends ListActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		Intent intent_agregar_evento = new Intent(this, AgregarEventoActivity.class);
+		Intent intent_agregar_mascota = new Intent(this, AgregarMascotaActivity.class);
+		Intent intent_deslogueo = new Intent(this, LoginActivity.class);
 		
 		switch (id) {
-		case android.R.id.home:
-			
-			break;
 		case R.id.agregar:
-			
 			startActivity(intent_agregar_evento);
+			break;
+		case R.id.agregar_mascota:
+			startActivity(intent_agregar_mascota);
+			break;
+		case R.id.deslogueo:
+			startActivity(intent_deslogueo);
 			break;
 		default:
 			break;

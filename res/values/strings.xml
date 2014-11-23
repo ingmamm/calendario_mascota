@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">calendario_mascota</string>
+    <string name="app_name">Calendario de Mascota</string>
     <string name="tipoEvento">Tipo de Evento</string>
     <string name="descripcionEvento">Descripcion del Evento</string>
     <string name="fechaEvento">Fecha del Evento</string>
+    <string name="nombreMascota">Nombre de la Mascota</string>
+    <string name="tipoMascota">Tipo de Mascota</string>
+    <string name="razaMascota">Raza de la Mascota</string>
+    <string name="fechaNacimientoMascota">Fecha de Nacimernto</string>
     <string name="aceptar">Aceptar</string>
-    <string name="agregar">Agregar</string>
+    <string name="agregar">Agregar Evento</string>
+    <string name="agregar_mascota">Agregar Mascota</string>
+    <string name="deslogueo">Deslogueo</string>
     <string name="descripcion">Descripcion</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_menu">Menu de Eventos</string>
     <string name="title_activity_detalle_evento">Detalle del Evento</string>
     <string name="title_activity_agregar_evento">Agregar Evento</string>
+    <string name="title_activity_agregar_mascota">Agregar Mascota</string>
 
 </resources>

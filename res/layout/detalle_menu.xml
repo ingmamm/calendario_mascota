@@ -22,10 +22,19 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/textView1"
-        android:layout_marginRight="37dp"
+        android:layout_marginLeft="36dp"
+        android:layout_toRightOf="@+id/textView1"
         android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="41dp"
+        android:layout_toRightOf="@+id/imageView1"
+        android:src="@drawable/ic_action_quitar" />
 
     <TextView
         android:id="@+id/tvDescripcionItem"
@@ -33,6 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView1"
         android:layout_alignLeft="@+id/textView1"
-        android:text="TextView" />
+        android:text="@string/descripcion" />
 
 </RelativeLayout>
