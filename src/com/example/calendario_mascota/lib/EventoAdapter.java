@@ -31,9 +31,9 @@ public class EventoAdapter extends ArrayAdapter<Evento>{
 		Evento evento =objects.get(position);
 		
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.activity_detalle_evento, null);
+		View view = inflater.inflate(R.layout.detalle_menu, null);
 		
-		TextView tvDescripcion = (TextView) view.findViewById(R.id.tvDescripcion);
+		TextView tvDescripcion = (TextView) view.findViewById(R.id.tvDescripcionItem);
 		tvDescripcion.setText(evento.getDescripcion());
 		
 		return view;

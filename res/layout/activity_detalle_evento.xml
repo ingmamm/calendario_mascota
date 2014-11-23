@@ -9,24 +9,24 @@
     tools:context="com.example.calendario_mascota.DetalleEventoActivity" 
     android:background="@android:color/holo_blue_light">
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDescripcion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="112dp"
-        android:src="@drawable/ic_launcher" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="154dp"
+        android:src="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/tvDescripcion"
@@ -34,8 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="38dp"
-        android:text="@string/descripcion"
-        android:textColor="@android:color/white" />
+        android:layout_marginTop="25dp"
+        android:text="TextView" />
     
 </RelativeLayout>

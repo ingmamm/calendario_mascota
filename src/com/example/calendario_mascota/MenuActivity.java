@@ -1,20 +1,16 @@
 package com.example.calendario_mascota;
 
 import java.util.List;
-
 import com.example.calendario_mascota.R;
 import com.example.calendario_mascota.lib.EventoAdapter;
 import com.example.calendario_mascota.db.Calendario_MascotaDataSource;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class MenuActivity extends ListActivity {
 	
@@ -26,11 +22,11 @@ public class MenuActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
 		
-		
 		datasource = new Calendario_MascotaDataSource(this);
 		datasource.openDB();
 		eventos = datasource.obtenerEventos();
-		EventoAdapter adapter = new EventoAdapter(this, R.layout.activity_detalle_evento, eventos);
+		
+		EventoAdapter adapter = new EventoAdapter(this, R.layout.detalle_menu, eventos);
 		setListAdapter(adapter);
 	}
 
@@ -59,12 +55,15 @@ public class MenuActivity extends ListActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		Intent intent_agregar_evento = new Intent(this, AgregarEventoActivity.class);
 		
 		switch (id) {
 		case android.R.id.home:
 			
 			break;
-		case R.id.action_settings:
+		case R.id.agregar:
+			
+			startActivity(intent_agregar_evento);
 			break;
 		default:
 			break;

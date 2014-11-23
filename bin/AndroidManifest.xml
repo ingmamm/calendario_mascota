@@ -34,6 +34,10 @@
             android:name=".DetalleEventoActivity"
             android:label="@string/title_activity_detalle_evento" >
         </activity>
+        <activity
+            android:name=".AgregarEventoActivity"
+            android:label="@string/title_activity_agregar_evento" >
+        </activity>
     </application>
 
 </manifest>
