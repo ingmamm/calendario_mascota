@@ -11,6 +11,11 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 	
 	private static final String CREAR_TABLA_USUARIO = "CREATE TABLE usuario (" +
 			"id_usuario INTEGER PRIMARY KEY autoincrement, " +
+			"nombre text,"+
+			"aPaterno text,"+
+			"aMaterno text,"+
+			"email text,"+
+			"fNacimiento text,"+
 			"user TEXT, " +
 			"pass TEXT, " +
 			"logueado BOOL)";
