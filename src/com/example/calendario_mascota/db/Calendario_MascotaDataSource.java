@@ -90,9 +90,13 @@ public class Calendario_MascotaDataSource {
 			return true;
 		} else {
 			return false;
-		}	}
+		}	
+		}
 	//funciones para el login
-	public boolean registrarUsuario(String nombre,String aPaterno, String aMaterno,String user, String pass,String email,String fNacimiento){
+	public void registrarUsuario(String nombre,String aPaterno, String aMaterno,String email,String user, String pass,String fNacimiento){
+		
+		
+		Log.i(LOG, " creando usuario ");
 		
 		ContentValues valores = new ContentValues();
 		valores.put("nombre", nombre);
@@ -102,10 +106,10 @@ public class Calendario_MascotaDataSource {
 		valores.put("pass", pass);
 		valores.put("fNacimiento", fNacimiento);
 		
-		database.insert("usuario", null, valores);
+	    database.insert("usuario", null, valores);
 		Log.i(LOG, "usuario "+ user + " creado");
 				
-		return true;
+		
 		
 	}
 	

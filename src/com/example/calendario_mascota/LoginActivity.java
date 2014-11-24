@@ -38,8 +38,7 @@ public class LoginActivity extends Activity {
 		TextView usuario = (TextView) findViewById(R.id.editText1);
 		TextView contraseña = (TextView) findViewById(R.id.editText2);
 		
-		user = usuario.getText().toString();
-		pass = contraseña.getText().toString();
+		
 		
 		btn.setOnClickListener(new OnClickListener() {
 			
@@ -53,6 +52,8 @@ public class LoginActivity extends Activity {
 		
 	}
 	 private Boolean ValidarDatos(){
+		    user = usuario.getText().toString();
+			pass = contraseña.getText().toString();
 		  if (user.isEmpty()&&pass.isEmpty()) {
 			  Toast.makeText(getApplicationContext(), "Debe ingresar un nombre de usuario y/o contraseña", Toast.LENGTH_LONG).show();
 			  return false;
@@ -114,8 +115,10 @@ public class LoginActivity extends Activity {
 			
 			if(ValidarDatos()&&login.autenticar(user, hashPass(pass))){
 				Log.i("Ingresar", "entro al if " );
+			login.closeDB();
 			Intent intentMenu = new Intent(getApplicationContext(), MenuActivity.class);
 			startActivity(intentMenu);
+		intentMenu.putExtra("user", user);
 			}else {
 				Toast.makeText(getApplicationContext(), "Usuario y/o Contraseña incorrecto", Toast.LENGTH_SHORT);
 			}
