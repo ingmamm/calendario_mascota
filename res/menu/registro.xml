@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.calendario_mascota.RegistroActivity" >
+
+     <item
+        android:id="@+id/registro"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_content_add"
+        android:title="@string/Registro"/>
+    <item
+        android:id="@+id/login"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_communication_vpn_key"
+        android:title="@string/btn_login"/>
+
+
+</menu>

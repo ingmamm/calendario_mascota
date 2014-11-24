@@ -29,6 +29,19 @@
     <string name="title_activity_detalle_evento">Detalle del Evento</string>
     <string name="title_activity_agregar_evento">Agregar Evento</string>
     <string name="title_activity_agregar_mascota">Agregar Mascota</string>
-    <string name="title_activity_perfil">Perfil</string>
+    <string name="title_activity_registro">Registro</string>
+    <string name="title_activity_perfil">Perfil</string>       
+    <string name="Registro">Registrarse</string>
+    <string name="btn_OlvideMiContrasena">¿Ovido su Contraseña?</string>
+    <string name="btn_ingresar">Aceder</string> 
+    <string name="lb_reg_nombre">Nombre</string>
+    <string name="lb_reg_usuario">Usuario</string>
+    <string name="lb_reg_pass">Contraseña</string>
+    <string name="lb_reg_pass2"> Repita su contraseña</string>
+    <string name="lb_reg_email">Email</string>
+    <string name="lb_reg_fecha_nacimiento">Ingrese la fecha de nacimiento</string>
+    <string name="lb_reg_apellido_paterno">Apellido Paterno</string>
+    <string name="lb_reg_apellido_materno">Apellido Materno</string>
+    <string name="btn_login">Pantalla de inicio</string>
 
 </resources>
