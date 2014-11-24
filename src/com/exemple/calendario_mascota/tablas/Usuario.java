@@ -1,8 +1,8 @@
 package com.exemple.calendario_mascota.tablas;
 
 public class Usuario {
-	private int id_usuario;
-	private String user, pass;
+	private int id_usuario, telefono;
+	private String user, pass, nombre, apellido, mail, fehca_nac, direccion;
 	private boolean logueado;
 	public int getId_usuario() {
 		return id_usuario;

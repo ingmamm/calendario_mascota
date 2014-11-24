@@ -35,11 +35,11 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 	
 	private static final String INSERTAR_MASCOTA1 = "INSERT INTO mascota" +
 			"(id_usuario, nombre, tipo, raza, fecha_nac) VALUES (" +
-			"'1', 'pushol', 'perro', 'siberiano'. '13-13-13')";
+			"'1', 'pushol', 'perro', 'siberiano', '13-13-13')";
 	
 	private static final String INSERTAR_MASCOTA2 = "INSERT INTO mascota" +
 			"(id_usuario, nombre, tipo, raza, fecha_nac) VALUES (" +
-			"'1', 'colita', 'perro', 'golden retriever'. '13-13-13')";
+			"'1', 'colita', 'perro', 'golden retriever', '13-13-13')";
 	
 	private static final String INSERTAR_EVENTO1 = "INSERT INTO evento " +
 			"(id_mascota, tipo, descripcion, fecha) VALUES (" +

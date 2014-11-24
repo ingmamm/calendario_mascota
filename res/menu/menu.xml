@@ -28,5 +28,5 @@
         android:orderInCategory="100"
         android:title="@string/deslogueo"
         android:icon="@drawable/ic_action_deslogueo"
-        android:showAsAction="always"/>
+        android:showAsAction="never"/>
 </menu>
