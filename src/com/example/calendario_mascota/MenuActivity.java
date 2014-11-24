@@ -60,8 +60,12 @@ public class MenuActivity extends ListActivity {
 		Intent intent_agregar_evento = new Intent(this, AgregarEventoActivity.class);
 		Intent intent_agregar_mascota = new Intent(this, AgregarMascotaActivity.class);
 		Intent intent_deslogueo = new Intent(this, LoginActivity.class);
+		Intent intent_perfil = new Intent (this, PerfilActivity.class);
 		
 		switch (id) {
+		case R.id.perfil:
+			startActivity(intent_perfil);
+			break;
 		case R.id.agregar:
 			startActivity(intent_agregar_evento);
 			break;
