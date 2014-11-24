@@ -46,6 +46,14 @@
             android:name=".PerfilActivity"
             android:label="@string/title_activity_perfil" >
         </activity>
+        <activity
+            android:name=".RegistroActivity"
+            android:label="@string/title_activity_registro"
+            android:parentActivityName=".LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.calendario_mascota.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>
