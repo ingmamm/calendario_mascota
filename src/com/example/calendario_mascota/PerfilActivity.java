@@ -1,6 +1,7 @@
 package com.example.calendario_mascota;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,8 @@ public class PerfilActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
+		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
 	@Override
@@ -26,8 +29,18 @@ public class PerfilActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		Intent intent_menu = new Intent(this, MenuActivity.class);
+		Intent intent_login = new Intent(this, LoginActivity.class);
+		
+		switch (id) {
+		case android.R.id.home:
+			startActivity(intent_menu);
+			break;
+		case R.id.deslogueo:
+			startActivity(intent_login);
+			break;
+		default:
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
