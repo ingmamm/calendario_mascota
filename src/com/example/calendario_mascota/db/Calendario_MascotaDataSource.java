@@ -24,14 +24,14 @@ public class Calendario_MascotaDataSource {
 		dbhelper = new Calendario_MascotasDBOpenHelper(context);
 	}
 	
-	public void agregarEvento(int id_mascota, String tipo, String descripcion, String fecha){
+	public void agregarEvento(int id_mascota, String tipo, String descripcion, String fecha, String nombre_mascota){
 		
 		List<Evento> eventos = new ArrayList<Evento>();
 		
 		
 		String query = ("INSERT INTO evento" +
-			"(id_mascota, tipo, descripcion ,fecha) VALUES ('" +
-			id_mascota + "','"+ tipo +"', '"+ descripcion +"', '"+ fecha +"')");
+			"(id_mascota, tipo, descripcion ,fecha, nombre_mascota) VALUES ('" +
+			id_mascota + "','"+ tipo +"', '"+ descripcion +"', '"+ fecha +"','"+ nombre_mascota +"')");
 		
 		Cursor cursor = database.rawQuery(query, null);
 		
@@ -43,6 +43,7 @@ public class Calendario_MascotaDataSource {
 				evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
 				evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
 				evento.setFecha(cursor.getString(cursor.getColumnIndex("fecha")));
+				evento.setNombre_mascota(cursor.getString(cursor.getColumnIndex("nombre_mascota")));
 				eventos.add(evento);
 			}
 			
@@ -70,30 +71,13 @@ public class Calendario_MascotaDataSource {
 				evento.setId_mascota(cursor.getInt(cursor.getColumnIndex("id_mascota")));
 				evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
 				evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
-				evento.setFecha(cursor.getString(cursor.getColumnIndex("fecha")));	
+				evento.setFecha(cursor.getString(cursor.getColumnIndex("fecha")));
+				evento.setNombre_mascota(cursor.getString(cursor.getColumnIndex("nombre_mascota")));	
 				eventos.add(evento);
 			}
 			
 		}
 		return eventos;
-	}
-	
-	public String[] obtenerMascota(){
-		
-		String[] campos = new String[] {"nombre"};
-		String[] nombre_mascota= new String[]{};
-		int count = 0;
-		Cursor c = database.query("mascota", campos, "nombre=?", null, null, null, null);
-		 
-		//Nos aseguramos de que existe al menos un registro
-		if (c.moveToFirst()) {
-		     //Recorremos el cursor hasta que no haya más registros
-		     do {
-		          nombre_mascota[count] = c.getString(count);
-		     } while(c.moveToNext());
-		}
-		
-		return nombre_mascota;
 	}
 	
 	//funciones para el login

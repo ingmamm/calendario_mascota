@@ -36,6 +36,8 @@ public class EventoAdapter extends ArrayAdapter<Evento>{
 		TextView tvDescripcion = (TextView) view.findViewById(R.id.tvDescripcionItem);
 		tvDescripcion.setText(evento.getDescripcion());
 		
+		TextView tvNombreMascota = (TextView) view.findViewById(R.id.tvNombreMascotaItem);
+		tvNombreMascota.setText(evento.getNombre_mascota());
 		return view;
 		
 		}

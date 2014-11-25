@@ -33,7 +33,8 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 			"id_mascota INTEGER, " +
 			"tipo TEXT, " +
 			"descripcion TEXT," +
-			"fecha TEXT)";
+			"fecha TEXT," +
+			"nombre_mascota)";
 	
 	private static final String INSERTAR_USUARIO1 = "INSERT INTO usuario" +
 	"(user, pass, logueado) VALUES ('chango', '1234', 'false')";
@@ -47,20 +48,20 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 			"'1', 'colita', 'perro', 'golden retriever', '13-13-13')";
 	
 	private static final String INSERTAR_EVENTO1 = "INSERT INTO evento " +
-			"(id_mascota, tipo, descripcion, fecha) VALUES (" +
-			"'1','chango', 'hola que tal esto es una prueba', '13-13-13')";
+			"(id_mascota, tipo, descripcion, fecha, nombre_mascota) VALUES (" +
+			"'1','chango', 'hola que tal esto es una prueba', '13-13-13', 'PonPon')";
 	
 	private static final String INSERTAR_EVENTO2 = "INSERT INTO evento " +
-			"(id_mascota, tipo, descripcion, fecha) VALUES (" +
-			"'1','chango', 'hola que tal esto es una prueba', '13-13-13')";
+			"(id_mascota, tipo, descripcion, fecha, nombre_mascota) VALUES (" +
+			"'1','chango', 'hola que tal esto es una prueba', '13-13-13', 'PonPon')";
 	
 	private static final String INSERTAR_EVENTO3 = "INSERT INTO evento " +
-			"(id_mascota, tipo, descripcion, fecha) VALUES (" +
-			"'1','chango', 'hola que tal esto es una prueba', '13-13-13')";
+			"(id_mascota, tipo, descripcion, fecha, nombre_mascota) VALUES (" +
+			"'1','chango', 'hola que tal esto es una prueba', '13-13-13', 'PonPon')";
 	
 	private static final String INSERTAR_EVENTO4 = "INSERT INTO evento " +
-			"(id_mascota, tipo, descripcion, fecha) VALUES (" +
-			"'2','chango', 'hola que tal esto es una prueba', '13-13-13')";
+			"(id_mascota, tipo, descripcion, fecha, nombre_mascota) VALUES (" +
+			"'2','chango', 'hola que tal esto es una prueba', '13-13-13', 'Colita')";
 	
 	
 	public Calendario_MascotasDBOpenHelper (Context context){

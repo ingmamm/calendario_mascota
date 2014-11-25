@@ -36,7 +36,7 @@
         android:text="@string/descripcion" />
 
     <TextView
-        android:id="@+id/tvMascota"
+        android:id="@+id/tvNombreMascotaItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/imageView2"

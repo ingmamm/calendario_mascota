@@ -4,8 +4,14 @@ package com.exemple.calendario_mascota.tablas;
 public class Evento {
 	
 	private int id_evento, id_mascota;
-	private String  tipo, descripcion, fecha;
+	private String  tipo, descripcion, fecha, nombre_mascota;
 	
+	public String getNombre_mascota() {
+		return nombre_mascota;
+	}
+	public void setNombre_mascota(String nombre_mascota) {
+		this.nombre_mascota = nombre_mascota;
+	}
 	@Override
 	public String toString() {
 		return "Evento [descripcion=" + descripcion + "]";

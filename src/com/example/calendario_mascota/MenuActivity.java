@@ -17,7 +17,6 @@ import android.widget.ListView;
 public class MenuActivity extends ListActivity {
 	
 	List<Evento> eventos;
-	String[] nombre_mascota;
 	Calendario_MascotaDataSource datasource;
 			
 	@Override
@@ -28,7 +27,6 @@ public class MenuActivity extends ListActivity {
 		datasource = new Calendario_MascotaDataSource(this);
 		datasource.openDB();
 		eventos = datasource.obtenerEventos();
-		nombre_mascota = datasource.obtenerMascota();
 		
 		EventoAdapter adapter = new EventoAdapter(this, R.layout.detalle_menu, eventos);
 		setListAdapter(adapter);
@@ -49,6 +47,7 @@ public class MenuActivity extends ListActivity {
 		
 		Intent intent = new Intent(this, DetalleEventoActivity.class);
 		intent.putExtra("descripcion", evento.getDescripcion());
+		intent.putExtra("nombre_mascota", evento.getNombre_mascota());
 		
 		startActivity(intent);
 	}

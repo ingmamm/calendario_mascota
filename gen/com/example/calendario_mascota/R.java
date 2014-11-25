@@ -89,7 +89,7 @@ public final class R {
         public static final int textView7=0x7f080011;
         public static final int tvDescripcion=0x7f08000a;
         public static final int tvDescripcionItem=0x7f080015;
-        public static final int tvMascota=0x7f080016;
+        public static final int tvNombreMascotaItem=0x7f080016;
     }
     public static final class layout {
         public static final int activity_agregar_evento=0x7f030000;
