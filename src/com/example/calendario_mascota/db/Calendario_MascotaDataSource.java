@@ -37,7 +37,6 @@ public class Calendario_MascotaDataSource {
 		
 		if (cursor.getCount() > 0) {
 			while (cursor.moveToNext()) {
-				
 				Evento evento = new Evento();
 				evento.setId_evento(cursor.getInt(cursor.getColumnIndex("id_evento")));
 				evento.setId_mascota(cursor.getInt(cursor.getColumnIndex("id_mascota")));
@@ -110,24 +109,10 @@ public class Calendario_MascotaDataSource {
 			return true;
 		} else {
 			return false;
-		}	}
-	//funciones para el login
-	public boolean registrarUsuario(String nombre,String aPaterno, String aMaterno,String user, String pass,String email,String fNacimiento){
-		
-		ContentValues valores = new ContentValues();
-		valores.put("nombre", nombre);
-		valores.put("aPaterno", aPaterno);
-		valores.put("aMaterno", aMaterno);
-		valores.put("user", user);
-		valores.put("pass", pass);
-		valores.put("fNacimiento", fNacimiento);
-		
-		database.insert("usuario", null, valores);
-		Log.i(LOG, "usuario "+ user + " creado");
-				
-		return true;
-		
+		}	
 	}
+	
+	
 	
 	public void modificarUsuario(int id, Boolean estado){
 	  

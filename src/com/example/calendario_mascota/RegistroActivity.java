@@ -2,6 +2,8 @@ package com.example.calendario_mascota;
 
 import com.example.calendario_mascota.db.Calendario_MascotaDataSource;
 import com.example.calendario_mascota.LoginActivity;
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ public class RegistroActivity extends LoginActivity {
 
 	private static final String LOG = "RegistroAct";
 	
-	Calendario_MascotaDataSource registro;
+	Calendario_MascotaDataSource datasource;
 	
 	EditText nombre,aPaterno,aMaterno,user,pass,pass2,fNacimiento,email;
 	@Override
@@ -25,6 +27,9 @@ public class RegistroActivity extends LoginActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registro);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		
+		datasource =  new Calendario_MascotaDataSource(this);
 		
 		Log.i(LOG, "iniciando variables " );
 //		registro.openDB();
@@ -46,6 +51,7 @@ public class RegistroActivity extends LoginActivity {
 		fNacimiento=(EditText)findViewById(R.id.editText8);
 		Log.i(LOG, "iniciando variables editText8" );
 		Log.i(LOG, "listo " );
+		
 		
 //		pass.setOnFocusChangeListener(new OnFocusChangeListener() {
 //			
@@ -76,6 +82,7 @@ public class RegistroActivity extends LoginActivity {
 	public Boolean validarCampos() {
 	
 		Boolean faltaDato = false;
+		Log.i(LOG, "validando campos " );
 		
 		if (nombre.getText().toString().isEmpty()) {
 			Toast.makeText(getApplicationContext(), "Debe ingresar un nombre", Toast.LENGTH_SHORT).show();
@@ -102,6 +109,7 @@ public class RegistroActivity extends LoginActivity {
 			fNacimiento.requestFocus();
 			faltaDato = true;
 		}
+		Log.i(LOG, "validando campos = "+ faltaDato );
 		return faltaDato;
 		
 	}
@@ -121,7 +129,7 @@ public class RegistroActivity extends LoginActivity {
 			Toast.makeText(getApplicationContext(), "La contraseñas no coinciden, intente otra vez", Toast.LENGTH_SHORT).show();
 			iguales =false;
 		}
-		
+		Log.i(LOG, "validando pass = "+iguales );
 		return iguales;
 	}
 	@Override
@@ -146,18 +154,9 @@ public class RegistroActivity extends LoginActivity {
 			
 			return true;
 		case R.id.registro:
+			Log.i(LOG, "btn registro " );
 			
-			if(!validarCampos() && validarPass(pass.getText().toString(), pass2.getText().toString())){
-			
-				
-				if (registro.registrarUsuario(nombre.getText().toString(), aPaterno.getText().toString(), aMaterno.getText().toString(),
-						user.getText().toString(), hashPass(pass.getText().toString()), email.getText().toString(), fNacimiento.getText().toString())) {
-					Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
-				}
-				else{
-					Toast.makeText(getApplicationContext(), "intente nuevamente", Toast.LENGTH_SHORT).show();
-				}
-			}
+			  datasource.closeDB();
 			return true;	
 		case R.id.login:
 	
