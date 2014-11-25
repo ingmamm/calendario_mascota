@@ -43,12 +43,15 @@ public class DetalleEventoActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		Intent intent_menu = new Intent(this, MenuActivity.class);
+		Intent intent_login = new Intent(this, LoginActivity.class);
 		
 		switch (id) {
 		case android.R.id.home:
 			startActivity(intent_menu);
 			break;
-
+		case R.id.deslogueo:
+			startActivity(intent_login);
+			break;
 		default:
 			break;
 		}

@@ -37,6 +37,7 @@ public class Calendario_MascotaDataSource {
 		
 		if (cursor.getCount() > 0) {
 			while (cursor.moveToNext()) {
+				
 				Evento evento = new Evento();
 				evento.setId_evento(cursor.getInt(cursor.getColumnIndex("id_evento")));
 				evento.setId_mascota(cursor.getInt(cursor.getColumnIndex("id_mascota")));
@@ -77,6 +78,25 @@ public class Calendario_MascotaDataSource {
 		}
 		return eventos;
 	}
+	
+	public String[] obtenerMascota(){
+		
+		String[] campos = new String[] {"nombre"};
+		String[] nombre_mascota= new String[]{};
+		int count = 0;
+		Cursor c = database.query("mascota", campos, "nombre=?", null, null, null, null);
+		 
+		//Nos aseguramos de que existe al menos un registro
+		if (c.moveToFirst()) {
+		     //Recorremos el cursor hasta que no haya más registros
+		     do {
+		          nombre_mascota[count] = c.getString(count);
+		     } while(c.moveToNext());
+		}
+		
+		return nombre_mascota;
+	}
+	
 	public boolean autenticar(String user,String pass){
 		
 		
