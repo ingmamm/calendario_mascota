@@ -96,31 +96,50 @@ public class Calendario_MascotaDataSource {
 		return nombre_mascota;
 	}
 	
-	public boolean autenticar(String user,String pass){
-		
-		
-		String query = "SELECT * FROM usuario where user="+user+" and pass="+pass+";";
-				
-		Cursor cursor = database.rawQuery(query, null);
-		
-		if (cursor.getCount() == 1) {
+	//funciones para el login
+	
+		public boolean autenticar(String user,String pass){
 			
-			modificarUsuario((cursor.getInt(cursor.getColumnIndex("id_usuario"))), true);
-			return true;
-		} else {
-			return false;
-		}	
-	}
-	
-	
-	
-	public void modificarUsuario(int id, Boolean estado){
-	  
-	    ContentValues valores = new ContentValues();
-	    valores.put("id_usuario", id);
-	    valores.put("logueado", estado);
-	    
-	    database.update("usuario", valores, "id_usuario=" + id, null);
-	      
-	}
+			
+			String query = "SELECT * FROM usuario where user="+user+" and pass="+pass+";";
+					
+			Cursor cursor = database.rawQuery(query, null);
+			
+			if (cursor.getCount() == 1) {
+				
+				modificarUsuario((cursor.getInt(cursor.getColumnIndex("id_usuario"))), true);
+				return true;
+			} else {
+				return false;
+				}	
+			}
+		public void registrarUsuario(String nombre,String aPaterno, String aMaterno,String email,String user, String pass,String fNacimiento){
+			
+			
+			Log.i(LOG, " creando usuario ");
+			
+			ContentValues valores = new ContentValues();
+			valores.put("nombre", nombre);
+			valores.put("aPaterno", aPaterno);
+			valores.put("aMaterno", aMaterno);
+			valores.put("user", user);
+			valores.put("pass", pass);
+			valores.put("fNacimiento", fNacimiento);
+			
+		    database.insert("usuario", null, valores);
+			Log.i(LOG, "usuario "+ user + " creado");
+					
+			
+			
+		}
+		
+		public void modificarUsuario(int id, Boolean estado){
+		  
+		    ContentValues valores = new ContentValues();
+		    valores.put("id_usuario", id);
+		    valores.put("logueado", estado);
+		    
+		    database.update("usuario", valores, "id_usuario=" + id, null);
+		      
+		}
 }

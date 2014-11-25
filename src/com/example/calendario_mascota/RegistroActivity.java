@@ -155,7 +155,21 @@ public class RegistroActivity extends LoginActivity {
 			return true;
 		case R.id.registro:
 			Log.i(LOG, "btn registro " );
-			
+			if(!validarCampos() && validarPass(pass.getText().toString(), pass2.getText().toString())){
+				datasource.openDB();
+				Log.i(LOG, "if 1 registro  "+ nombre.getText().toString()+" "+ aPaterno.getText().toString()+" "+ aMaterno.getText().toString()+" "+
+						user.getText().toString()+" "+ hashPass(pass.getText().toString())+" "+ email.getText().toString()+" "+ fNacimiento.getText().toString());
+				
+				Log.i(LOG, "registro() " );
+				datasource.registrarUsuario(nombre.getText().toString(), aPaterno.getText().toString(), aMaterno.getText().toString(), email.getText().toString(), user.getText().toString(), hashPass(pass.getText().toString()), fNacimiento.getText().toString()); 
+					Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
+					Log.i(LOG, "\' registro() " );
+					datasource.closeDB();
+					startActivity(intent);
+				
+			}else{
+				Toast.makeText(getApplicationContext(), "intente nuevamente", Toast.LENGTH_SHORT).show();
+			}
 			  datasource.closeDB();
 			return true;	
 		case R.id.login:
@@ -174,3 +188,4 @@ public class RegistroActivity extends LoginActivity {
 		
 	}
 }
+
