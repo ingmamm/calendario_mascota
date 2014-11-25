@@ -20,11 +20,12 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
 
 	private static final String SEGURIDA = "AIzaSyC_d-OLZeBhz-aOUvm25wz0Ds9jWogIqBM";
+	
 	Calendario_MascotaDataSource login;
 
 	TextView usuario,  contraseña;
 	String user,pass;
-	Button btn;
+	Button btn,btnIngresar;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,8 +36,8 @@ public class LoginActivity extends Activity {
 		login = new Calendario_MascotaDataSource(this);
 		
 		
-		TextView usuario = (TextView) findViewById(R.id.editText1);
-		TextView contraseña = (TextView) findViewById(R.id.editText2);
+		usuario = (TextView) findViewById(R.id.editText1);
+		contraseña = (TextView) findViewById(R.id.editText2);
 		
 		
 		
@@ -51,9 +52,10 @@ public class LoginActivity extends Activity {
 		});
 		
 	}
-	 private Boolean ValidarDatos(){
-		    user = usuario.getText().toString();
-			pass = contraseña.getText().toString();
+	 public Boolean ValidarDatos(String user, String pass){
+		
+		
+		   
 		  if (user.isEmpty()&&pass.isEmpty()) {
 			  Toast.makeText(getApplicationContext(), "Debe ingresar un nombre de usuario y/o contraseña", Toast.LENGTH_LONG).show();
 			  return false;
@@ -77,6 +79,7 @@ public class LoginActivity extends Activity {
 	  public String hashPass(String password){
 		  Log.i("HASH", "Hasehando " );
 		  password+=SEGURIDA; 
+		  
 	    MessageDigest digest=null;
 	    String hash;
 	    try {
@@ -93,7 +96,7 @@ public class LoginActivity extends Activity {
 	    }
 	    return password;
 }
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -111,17 +114,24 @@ public class LoginActivity extends Activity {
 		
 		case R.id.ingresar:
 			Log.i("Ingresar", "se presiono el boton " );
-			login.openDB();
+			 
+			user = usuario.getText().toString();
+			pass = contraseña.getText().toString();
 			
-			if(ValidarDatos()&&login.autenticar(user, hashPass(pass))){
-				Log.i("Ingresar", "entro al if " );
-			login.closeDB();
-			Intent intentMenu = new Intent(getApplicationContext(), MenuActivity.class);
-			startActivity(intentMenu);
-		intentMenu.putExtra("user", user);
-			}else {
-				Toast.makeText(getApplicationContext(), "Usuario y/o Contraseña incorrecto", Toast.LENGTH_SHORT);
-			}
+			
+			login.openDB();				
+						
+				Log.i("Ingresar", "entro al if existe usuario " + user+" "+pass );
+				if(ValidarDatos(user,pass)&&login.autenticar(user, hashPass(pass))){
+					Log.i("Ingresar", "entro al if " );
+//				login.closeDB();
+				Intent intentMenu = new Intent(getApplicationContext(), MenuActivity.class);
+				startActivity(intentMenu);
+			intentMenu.putExtra("user", user);
+				}else {
+					Toast.makeText(getApplicationContext(), "Usuario y/o Contraseña incorrecto", Toast.LENGTH_SHORT);
+				}
+			
 			Log.i("Ingresar", "salio del if " );
 			login.closeDB();
 			return true;	

@@ -84,6 +84,19 @@ public class RegistroActivity extends LoginActivity {
 		Boolean faltaDato = false;
 		Log.i(LOG, "validando campos " );
 		
+		if (user.getText().toString().isEmpty()) {
+			Toast.makeText(getApplicationContext(), "Debe ingresar un nombre de usuario", Toast.LENGTH_SHORT).show();
+			
+			user.requestFocus();
+			faltaDato = true;
+		}
+		datasource.openDB();
+		if (datasource.existeUsuario(user.getText().toString())) {
+			Toast.makeText(getApplicationContext(), "error el usuario ya existe, intente con otro nombre de usuario ", Toast.LENGTH_SHORT).show();
+			user.requestFocus();
+			faltaDato = true;
+		}
+		datasource.closeDB();
 		if (nombre.getText().toString().isEmpty()) {
 			Toast.makeText(getApplicationContext(), "Debe ingresar un nombre", Toast.LENGTH_SHORT).show();
 			nombre.requestFocus();

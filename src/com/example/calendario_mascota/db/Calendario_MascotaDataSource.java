@@ -85,13 +85,18 @@ public class Calendario_MascotaDataSource {
 		public boolean autenticar(String user,String pass){
 			
 			
-			String query = "SELECT * FROM usuario where user="+user+" and pass="+pass+";";
-					
+			String query = "SELECT * FROM usuario where user='"+user+"' and pass='"+pass+"';";
+			Log.i(LOG, " creando consulta " +query);		
 			Cursor cursor = database.rawQuery(query, null);
-			
+			Log.i(LOG, " creando  cursor " );
+			cursor.moveToNext();
+			int id = cursor.getInt(cursor.getColumnIndex("id_usuario"));
 			if (cursor.getCount() == 1) {
+				Log.i(LOG, " cursor "+ cursor.getCount()+" ");
 				
-				modificarUsuario((cursor.getInt(cursor.getColumnIndex("id_usuario"))), true);
+				
+				modificarUsuario(id, true);
+//				Log.i(LOG, " cursor2 " + cursor.getString(cursor.getColumnIndex("logueado")));
 				return true;
 			} else {
 				return false;
@@ -118,7 +123,7 @@ public class Calendario_MascotaDataSource {
 		}
 		
 		public void modificarUsuario(int id, Boolean estado){
-		  
+			Log.i(LOG, " M usuarior " );
 		    ContentValues valores = new ContentValues();
 		    valores.put("id_usuario", id);
 		    valores.put("logueado", estado);
@@ -126,4 +131,27 @@ public class Calendario_MascotaDataSource {
 		    database.update("usuario", valores, "id_usuario=" + id, null);
 		      
 		}
+		
+		public Boolean existeUsuario(String user){
+			
+			Log.i(LOG, "Eusuario "+ user + " ");
+			
+			String query = "SELECT * FROM usuario where user='"+user+"';";
+			Log.i(LOG, "Eusuario query "+ query);
+			
+			Cursor cursor = database.rawQuery(query, null);
+			Log.i(LOG, "Eusuario cursor");
+			if (cursor.getCount() > 0) {
+				
+				Log.i(LOG, "Eusuario numero de filas" + " ");		
+				
+				return true;
+				} 
+			else
+				{
+				return false;
+				}	
+			}
+			
+		
 }

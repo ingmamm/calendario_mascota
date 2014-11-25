@@ -37,7 +37,7 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 			"nombre_mascota)";
 	
 	private static final String INSERTAR_USUARIO1 = "INSERT INTO usuario" +
-	"(user, pass, logueado) VALUES ('chango', '1234', 'false')";
+	"(user, pass, logueado) VALUES ('chango', 'd7fa48d0f3f67fb415db16a558c3ca84b64829e076963cebf380165325f68ae4', 'false')";
 	
 	private static final String INSERTAR_MASCOTA1 = "INSERT INTO mascota" +
 			"(id_usuario, nombre, tipo, raza, fecha_nac) VALUES (" +
