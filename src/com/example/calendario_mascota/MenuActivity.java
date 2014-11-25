@@ -17,9 +17,10 @@ import android.widget.ListView;
 
 public class MenuActivity extends ListActivity {
 	
+	private static final String LOG = "MenuAct";
 	List<Evento> eventos;
 	Calendario_MascotaDataSource datasource;
-			
+	String user;		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,6 +29,12 @@ public class MenuActivity extends ListActivity {
 		datasource = new Calendario_MascotaDataSource(this);
 		datasource.openDB();
 		eventos = datasource.obtenerEventos();
+		Intent intent = getIntent();
+		
+	
+		user = intent.getStringExtra("user");
+		Log.i(LOG, "user= "+ user);
+		
 		
 		EventoAdapter adapter = new EventoAdapter(this, R.layout.detalle_menu, eventos);
 		setListAdapter(adapter);
@@ -66,8 +73,10 @@ public class MenuActivity extends ListActivity {
 		
 		switch (id) {
 		case R.id.perfil:
-			Log.i(null, "hola");
+			Log.i(LOG, "btn perfil");
+			intent_perfil.putExtra("user",user);
 			startActivity(intent_perfil);
+			Log.i(LOG, "btn perfil");
 			break;
 		case R.id.agregar:
 			startActivity(intent_agregar_evento);

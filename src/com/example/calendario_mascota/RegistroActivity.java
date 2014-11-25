@@ -21,7 +21,7 @@ public class RegistroActivity extends LoginActivity {
 	
 	Calendario_MascotaDataSource datasource;
 	
-	EditText nombre,aPaterno,aMaterno,user,pass,pass2,fNacimiento,email;
+	EditText nombre,aPaterno,aMaterno,user,pass,pass2,fNacimiento,email,direccion;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,6 +49,7 @@ public class RegistroActivity extends LoginActivity {
 		pass2=(EditText)findViewById(R.id.editText7);
 		Log.i(LOG, "iniciando variables editText7" );
 		fNacimiento=(EditText)findViewById(R.id.editText8);
+		direccion=(EditText)findViewById(R.id.editText9);
 		Log.i(LOG, "iniciando variables editText8" );
 		Log.i(LOG, "listo " );
 		
@@ -174,7 +175,7 @@ public class RegistroActivity extends LoginActivity {
 						user.getText().toString()+" "+ hashPass(pass.getText().toString())+" "+ email.getText().toString()+" "+ fNacimiento.getText().toString());
 				
 				Log.i(LOG, "registro() " );
-				datasource.registrarUsuario(nombre.getText().toString(), aPaterno.getText().toString(), aMaterno.getText().toString(), email.getText().toString(), user.getText().toString(), hashPass(pass.getText().toString()), fNacimiento.getText().toString()); 
+				datasource.registrarUsuario(nombre.getText().toString(), aPaterno.getText().toString(), aMaterno.getText().toString(), email.getText().toString(), user.getText().toString(), hashPass(pass.getText().toString()), fNacimiento.getText().toString(),direccion.getText().toString()); 
 					Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
 					Log.i(LOG, "\' registro() " );
 					datasource.closeDB();

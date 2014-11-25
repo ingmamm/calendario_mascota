@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.R.integer;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -91,17 +92,63 @@ public class Calendario_MascotaDataSource {
 			while (cursor.moveToNext()) {
 				Usuario usuario = new Usuario();
 				usuario.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
-				usuario.setApellido(cursor.getString(cursor.getColumnIndex("apellido")));
+				usuario.setaPaterno(cursor.getString(cursor.getColumnIndex("aPaterno")));
+				usuario.setaMaterno(cursor.getString(cursor.getColumnIndex("aMaterno")));
 				usuario.setUser(cursor.getString(cursor.getColumnIndex("user")));
-				usuario.setMail(cursor.getString(cursor.getColumnIndex("mail")));
+				usuario.setEmail(cursor.getString(cursor.getColumnIndex("email")));
 				usuario.setTelefono(cursor.getInt(cursor.getColumnIndex("telefono")));
 				usuario.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));	
+				usuario.setfNacimiento(cursor.getString(cursor.getColumnIndex("fNacimiento")));
 				usuarios.add(usuario);
 			}
 			
 		}
 		return usuarios;
 	}
+	public Usuario obtenerPerfil(String user) {
+		Usuario usuario= new Usuario();
+//		String[] datos= new String[7];
+		String datos;
+		Log.i(LOG, " creando consulta " +user);
+		String query = "SELECT * FROM usuario where user='"+user+"';" ;
+		Log.i(LOG, " creando consulta " +query);	
+		
+		Cursor cursor = database.rawQuery(query, null);
+		if (cursor.getCount() > 0) {
+			Log.i(LOG, " creando consulta " +cursor.getCount()+" " +cursor) ;	
+			 cursor.moveToNext();
+			    
+//			 	datos[0]=(cursor.getString(cursor.getColumnIndex("user")));
+//				datos[1] =(cursor.getString(cursor.getColumnIndex("nombre")));
+//				datos[2]=(cursor.getString(cursor.getColumnIndex("aPaterno")));
+//				datos[2]+=" ";
+//				datos[2]+=(cursor.getString(cursor.getColumnIndex("aMaterno")));
+//				datos[3]=(cursor.getString(cursor.getColumnIndex("email")));
+//				datos[4]= String.valueOf(((cursor.getInt(cursor.getColumnIndex("telefono")))));
+//				datos[5]=(cursor.getString(cursor.getColumnIndex("direccion")));	
+//				datos[6]=(cursor.getString(cursor.getColumnIndex("fNacimiento")));
+			 	Log.i(LOG, " seteando datos " );	
+				usuario.setUser((cursor.getString(cursor.getColumnIndex("user"))));
+				Log.i(LOG, " seteando datos 1" );
+				usuario.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+				Log.i(LOG, " seteando datos 2" );
+				usuario.setaPaterno(cursor.getString(cursor.getColumnIndex("aPaterno")));				
+				Log.i(LOG, " seteando datos 3" );
+				usuario.setaMaterno(cursor.getString(cursor.getColumnIndex("aMaterno")));
+				Log.i(LOG, " seteando datos 4" );
+				usuario.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+				Log.i(LOG, " seteando datos 5" );
+				usuario.setTelefono((cursor.getInt(cursor.getColumnIndex("telefono"))));
+				Log.i(LOG, " seteando datos 6" );
+				usuario.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));	
+				Log.i(LOG, " seteando datos 7" );
+				usuario.setfNacimiento(cursor.getString(cursor.getColumnIndex("fNacimiento")));
+				Log.i(LOG, "  datos " );		
+			
+		}
+		return usuario;
+	}
+	
 	
 	//funciones para el login
 	
@@ -125,7 +172,7 @@ public class Calendario_MascotaDataSource {
 				return false;
 				}	
 			}
-		public void registrarUsuario(String nombre,String aPaterno, String aMaterno,String email,String user, String pass,String fNacimiento){
+		public void registrarUsuario(String nombre,String aPaterno, String aMaterno,String email,String user, String pass,String fNacimiento, String direccion){
 			
 			
 			Log.i(LOG, " creando usuario ");
@@ -137,6 +184,7 @@ public class Calendario_MascotaDataSource {
 			valores.put("user", user);
 			valores.put("pass", pass);
 			valores.put("fNacimiento", fNacimiento);
+			valores.put("direccion", direccion);
 			
 		    database.insert("usuario", null, valores);
 			Log.i(LOG, "usuario "+ user + " creado");

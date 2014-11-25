@@ -16,8 +16,10 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 			"aMaterno text,"+
 			"email text,"+
 			"fNacimiento text,"+
+			"direccion text,"+
 			"user TEXT, " +
 			"pass TEXT, " +
+			"telefono INTEGER," +
 			"logueado BOOL)";
 	
 	private static final String CREAR_TABLA_MASCOTA = "CREATE TABLE mascota (" +
@@ -37,7 +39,8 @@ public class Calendario_MascotasDBOpenHelper extends SQLiteOpenHelper {
 			"nombre_mascota)";
 	
 	private static final String INSERTAR_USUARIO1 = "INSERT INTO usuario" +
-	"(user, pass, logueado) VALUES ('chango', 'd7fa48d0f3f67fb415db16a558c3ca84b64829e076963cebf380165325f68ae4', 'false')";
+	"(nombre,aPaterno,aMaterno, email,fNacimiento, direccion,user, pass, telefono, logueado)" +
+	" VALUES ('a','aa','as','as@as.cl','30-05-1987','mi casa','chango', 'd7fa48d0f3f67fb415db16a558c3ca84b64829e076963cebf380165325f68ae4','1234567', 'false')";
 	
 	private static final String INSERTAR_MASCOTA1 = "INSERT INTO mascota" +
 			"(id_usuario, nombre, tipo, raza, fecha_nac) VALUES (" +

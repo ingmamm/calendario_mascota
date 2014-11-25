@@ -47,6 +47,7 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+				intent.putExtra("user", "chango");
 				startActivity(intent);
 			}
 		});
@@ -120,14 +121,16 @@ public class LoginActivity extends Activity {
 			
 			
 			login.openDB();				
-						
-				Log.i("Ingresar", "entro al if existe usuario " + user+" "+pass );
+					
+				Log.i("Ingresar", "entro al if existe usuario " + user +" "+pass );
 				if(ValidarDatos(user,pass)&&login.autenticar(user, hashPass(pass))){
 					Log.i("Ingresar", "entro al if " );
 //				login.closeDB();
 				Intent intentMenu = new Intent(getApplicationContext(), MenuActivity.class);
-				startActivity(intentMenu);
-			intentMenu.putExtra("user", user);
+				
+			    intentMenu.putExtra("user", user);
+			    startActivity(intentMenu);
+			    
 				}else {
 					Toast.makeText(getApplicationContext(), "Usuario y/o Contraseña incorrecto", Toast.LENGTH_SHORT);
 				}

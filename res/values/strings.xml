@@ -42,6 +42,7 @@
     <string name="lb_reg_fecha_nacimiento">Ingrese la fecha de nacimiento</string>
     <string name="lb_reg_apellido_paterno">Apellido Paterno</string>
     <string name="lb_reg_apellido_materno">Apellido Materno</string>
+    <string name="lb_reg_direccion">Ingrese su direccion</string>
     <string name="btn_login">Pantalla de inicio</string>
 
 </resources>

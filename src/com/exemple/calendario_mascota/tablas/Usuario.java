@@ -1,9 +1,18 @@
 package com.exemple.calendario_mascota.tablas;
 
+import android.R.bool;
+
 public class Usuario {
-	private int id_usuario, telefono;
-	private String user, pass, nombre, apellido, mail, fehca_nac, direccion;
-	private boolean logueado;
+	int id_usuario, telefono;
+	String user, pass,nombre ,aPaterno ,aMaterno ,email,fNacimiento ,direccion ;
+
+	public int getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
+	bool logueado;
 	public int getId_usuario() {
 		return id_usuario;
 	}
@@ -22,41 +31,35 @@ public class Usuario {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public boolean isLogueado() {
-		return logueado;
-	}
-	public void setLogueado(boolean logueado) {
-		this.logueado = logueado;
-	}
-	public int getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getaPaterno() {
+		return aPaterno;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
 	}
-	public String getMail() {
-		return mail;
+	public String getaMaterno() {
+		return aMaterno;
 	}
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
 	}
-	public String getFehca_nac() {
-		return fehca_nac;
+	public String getEmail() {
+		return email;
 	}
-	public void setFehca_nac(String fehca_nac) {
-		this.fehca_nac = fehca_nac;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getfNacimiento() {
+		return fNacimiento;
+	}
+	public void setfNacimiento(String fNacimiento) {
+		this.fNacimiento = fNacimiento;
 	}
 	public String getDireccion() {
 		return direccion;
@@ -64,6 +67,13 @@ public class Usuario {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	public bool getLogueado() {
+		return logueado;
+	}
+	public void setLogueado(bool logueado) {
+		this.logueado = logueado;
+	}
+	
 	
 	
 }

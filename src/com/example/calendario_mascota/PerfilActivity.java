@@ -11,20 +11,59 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class PerfilActivity extends Activity {
 	
-	List<Usuario> usuarios;
-	Calendario_MascotaDataSource datasource;
+	private static final String LOG = "PerfilAct";
 	
+	Calendario_MascotaDataSource datasource;
+	String user; 
+	Usuario perfil =new Usuario(); 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
 		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		datasource =new Calendario_MascotaDataSource(this);
+		Log.i(LOG, " perfil");
+		Intent intent = getIntent();
+		Log.i(LOG, " perfil intent");
+		user = intent.getStringExtra("user");
+		Log.i(LOG, " recibiendo intent " + user);
 		
-//		Log.i(null, "hola");
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		Log.i(LOG, " recibiendo");
+		datasource.openDB();
+		perfil = datasource.obtenerPerfil(user);
+		
+		Log.i(LOG, " recibiendo perfil");
+		
+		datasource.closeDB();
+		
+		
+		EditText etUsuario = (EditText)findViewById(R.id.etUsuario);
+		etUsuario.setHint(perfil.getUser());
+		Log.i(LOG, "1");
+		EditText etNombre = (EditText)findViewById(R.id.etNombre);
+		etNombre.setHint(perfil.getNombre());
+		Log.i(LOG, "2");
+		EditText etApellido = (EditText)findViewById(R.id.etApellido);
+		etApellido.setHint(perfil.getaPaterno()+" "+perfil.getaMaterno());
+		Log.i(LOG, "3");
+		EditText etEmail = (EditText)findViewById(R.id.etMail);
+		etEmail.setHint(perfil.getEmail());
+		Log.i(LOG, "4");
+		EditText etTelefono = (EditText)findViewById(R.id.etTelefono);
+		etTelefono.setHint(String.valueOf( perfil.getTelefono()));
+		Log.i(LOG, "5");
+		EditText etFNacimiento = (EditText)findViewById(R.id.etFechaNac);
+		etFNacimiento.setHint(perfil.getfNacimiento());
+		Log.i(LOG, "6");
+		EditText etDireccion = (EditText)findViewById(R.id.etDireccion);
+		etDireccion.setHint(perfil.getDireccion());
+		
+		Log.i(LOG, "hola");
 //		
 //		datasource = new Calendario_MascotaDataSource(this);
 //		datasource.openDB();
