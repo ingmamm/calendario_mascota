@@ -9,6 +9,7 @@ import com.exemple.calendario_mascota.tablas.Evento;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,6 +66,7 @@ public class MenuActivity extends ListActivity {
 		
 		switch (id) {
 		case R.id.perfil:
+			Log.i(null, "hola");
 			startActivity(intent_perfil);
 			break;
 		case R.id.agregar:

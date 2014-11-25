@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.example.calendario_mascota.db.Calendario_MascotasDBOpenHelper;
 import com.exemple.calendario_mascota.tablas.Evento;
+import com.exemple.calendario_mascota.tablas.Usuario;
 
 public class Calendario_MascotaDataSource {
 	
@@ -78,6 +79,28 @@ public class Calendario_MascotaDataSource {
 			
 		}
 		return eventos;
+	}
+	
+	public List<Usuario> obtenerUsuario(){
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+
+		String query = "SELECT * FROM usuario";
+		Cursor cursor = database.rawQuery(query, null);
+		
+		if (cursor.getCount() > 0) {
+			while (cursor.moveToNext()) {
+				Usuario usuario = new Usuario();
+				usuario.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+				usuario.setApellido(cursor.getString(cursor.getColumnIndex("apellido")));
+				usuario.setUser(cursor.getString(cursor.getColumnIndex("user")));
+				usuario.setMail(cursor.getString(cursor.getColumnIndex("mail")));
+				usuario.setTelefono(cursor.getInt(cursor.getColumnIndex("telefono")));
+				usuario.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));	
+				usuarios.add(usuario);
+			}
+			
+		}
+		return usuarios;
 	}
 	
 	//funciones para el login

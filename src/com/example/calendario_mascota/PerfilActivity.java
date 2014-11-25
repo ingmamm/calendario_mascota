@@ -1,21 +1,39 @@
 package com.example.calendario_mascota;
 
+import java.util.List;
+
+import com.example.calendario_mascota.db.Calendario_MascotaDataSource;
+import com.example.calendario_mascota.lib.UsuarioAdapter;
+import com.exemple.calendario_mascota.tablas.Usuario;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class PerfilActivity extends Activity {
-
+	
+	List<Usuario> usuarios;
+	Calendario_MascotaDataSource datasource;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+//		Log.i(null, "hola");
+//		
+//		datasource = new Calendario_MascotaDataSource(this);
+//		datasource.openDB();
+//		usuarios = datasource.obtenerUsuario();
+//		
+//		UsuarioAdapter adapter = new UsuarioAdapter(this, R.layout.activity_perfil, usuarios);
+//		setListAdapter(adapter);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
