@@ -12,14 +12,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PerfilActivity extends Activity {
 	
 	private static final String LOG = "PerfilAct";
 	
 	Calendario_MascotaDataSource datasource;
-	String user; 
+	String user,nombre,aPaterno,aMaterno,email,fNacimiento,direccion;
 	Usuario perfil =new Usuario(); 
+	 EditText etUsuario, etNombre, etApellido, etEmail, etTelefono,etFNacimiento,etDireccion;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,25 +44,25 @@ public class PerfilActivity extends Activity {
 		datasource.closeDB();
 		
 		
-		EditText etUsuario = (EditText)findViewById(R.id.etUsuario);
+		 etUsuario = (EditText)findViewById(R.id.etUsuario);
 		etUsuario.setHint(perfil.getUser());
 		Log.i(LOG, "1");
-		EditText etNombre = (EditText)findViewById(R.id.etNombre);
+		 etNombre = (EditText)findViewById(R.id.etNombre);
 		etNombre.setHint(perfil.getNombre());
 		Log.i(LOG, "2");
-		EditText etApellido = (EditText)findViewById(R.id.etApellido);
+		 etApellido = (EditText)findViewById(R.id.etApellido);
 		etApellido.setHint(perfil.getaPaterno()+" "+perfil.getaMaterno());
 		Log.i(LOG, "3");
-		EditText etEmail = (EditText)findViewById(R.id.etMail);
+		 etEmail = (EditText)findViewById(R.id.etMail);
 		etEmail.setHint(perfil.getEmail());
 		Log.i(LOG, "4");
-		EditText etTelefono = (EditText)findViewById(R.id.etTelefono);
+		 etTelefono = (EditText)findViewById(R.id.etTelefono);
 		etTelefono.setHint(String.valueOf( perfil.getTelefono()));
 		Log.i(LOG, "5");
-		EditText etFNacimiento = (EditText)findViewById(R.id.etFechaNac);
+		 etFNacimiento = (EditText)findViewById(R.id.etFechaNac);
 		etFNacimiento.setHint(perfil.getfNacimiento());
 		Log.i(LOG, "6");
-		EditText etDireccion = (EditText)findViewById(R.id.etDireccion);
+		 etDireccion = (EditText)findViewById(R.id.etDireccion);
 		etDireccion.setHint(perfil.getDireccion());
 		
 		Log.i(LOG, "hola");
@@ -89,12 +91,75 @@ public class PerfilActivity extends Activity {
 		Intent intent_menu = new Intent(this, MenuActivity.class);
 		Intent intent_login = new Intent(this, LoginActivity.class);
 		
+		
 		switch (id) {
 		case android.R.id.home:
 			startActivity(intent_menu);
 			break;
 		case R.id.deslogueo:
 			startActivity(intent_login);
+			break;
+		case R.id.guardar:
+			int telefono;
+			Boolean cambios = false;
+			if (etNombre.getText().toString().trim().equals("")) {
+				 nombre = perfil.getNombre();
+			}
+			else{
+				nombre = etNombre.getText().toString();
+				cambios = true;
+			}
+			if (etApellido.getText().toString().trim().equals("")) {
+				 aPaterno = perfil.getaPaterno();
+				 aMaterno = perfil.getaMaterno();
+			}
+			else{
+				// separa el estring en 2 y lo guarda
+				String[] apellidosComoArray = etApellido.getText().toString().split(" ");
+				 aPaterno = apellidosComoArray[0];
+				 aMaterno = apellidosComoArray[1];
+				 cambios = true;
+			}
+			if (etEmail.getText().toString().trim().equals("")) {
+				 email = perfil.getEmail();
+			}
+			else{
+				email = etEmail.getText().toString();
+				cambios = true;
+			}
+			if (etFNacimiento.getText().toString().trim().equals("")) {
+				fNacimiento = perfil.getfNacimiento();
+			}
+			else{
+				fNacimiento = etFNacimiento.getText().toString();
+				cambios = true;
+			}
+			if (etDireccion.getText().toString().trim().equals("")) {
+				direccion = perfil.getDireccion();
+			}
+			else{
+				fNacimiento = etDireccion.getText().toString();
+				cambios = true;
+			}
+			if (etTelefono.getText().toString().trim().equals("")) {
+				telefono = perfil.getTelefono();
+			}
+			else{
+				telefono = Integer.parseInt(etTelefono.getText().toString());
+				cambios = true;
+			}
+			Log.i(LOG, "datos = "+nombre+ aPaterno+ aMaterno+ email+ user+ fNacimiento+ direccion+ telefono);
+			
+			if(cambios){
+				Log.i(LOG, " if cambios  ");
+				datasource.openDB();
+				datasource.mofificarUsuario(nombre, aPaterno, aMaterno, email, user, fNacimiento, direccion, telefono);
+				datasource.closeDB();
+				Toast.makeText(PerfilActivity.this.getApplicationContext(), "datos actualizados con exito", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					Toast.makeText(PerfilActivity.this.getApplicationContext(), "no se han realizado cambios", Toast.LENGTH_SHORT).show();
+				}
 			break;
 		default:
 			break;

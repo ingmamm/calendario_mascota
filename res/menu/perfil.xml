@@ -1,12 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.calendario_mascota.PerfilActivity" >
-
+	<item
+        android:id="@+id/guardar"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_content_save"
+        android:title="@string/Registro"/>
     <item
         android:id="@+id/deslogueo"
         android:orderInCategory="100"
         android:title="@string/deslogueo"
         android:icon="@drawable/ic_action_deslogueo"
         android:showAsAction="never"/>
+    
 
 </menu>

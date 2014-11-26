@@ -79,11 +79,12 @@ public final class R {
         public static final int etNombre=0x7f08000c;
         public static final int etTelefono=0x7f080010;
         public static final int etUsuario=0x7f08000b;
+        public static final int guardar=0x7f080028;
         public static final int imageView1=0x7f080009;
         public static final int imageView2=0x7f08001d;
         public static final int ingresar=0x7f080021;
         public static final int listView1=0x7f080015;
-        public static final int login=0x7f080028;
+        public static final int login=0x7f080029;
         public static final int olvideMiContrasena=0x7f080023;
         public static final int perfil=0x7f080025;
         public static final int registro=0x7f080022;

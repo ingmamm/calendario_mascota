@@ -105,10 +105,10 @@ public class Calendario_MascotaDataSource {
 		}
 		return usuarios;
 	}
+	
 	public Usuario obtenerPerfil(String user) {
 		Usuario usuario= new Usuario();
-//		String[] datos= new String[7];
-		String datos;
+
 		Log.i(LOG, " creando consulta " +user);
 		String query = "SELECT * FROM usuario where user='"+user+"';" ;
 		Log.i(LOG, " creando consulta " +query);	
@@ -118,15 +118,7 @@ public class Calendario_MascotaDataSource {
 			Log.i(LOG, " creando consulta " +cursor.getCount()+" " +cursor) ;	
 			 cursor.moveToNext();
 			    
-//			 	datos[0]=(cursor.getString(cursor.getColumnIndex("user")));
-//				datos[1] =(cursor.getString(cursor.getColumnIndex("nombre")));
-//				datos[2]=(cursor.getString(cursor.getColumnIndex("aPaterno")));
-//				datos[2]+=" ";
-//				datos[2]+=(cursor.getString(cursor.getColumnIndex("aMaterno")));
-//				datos[3]=(cursor.getString(cursor.getColumnIndex("email")));
-//				datos[4]= String.valueOf(((cursor.getInt(cursor.getColumnIndex("telefono")))));
-//				datos[5]=(cursor.getString(cursor.getColumnIndex("direccion")));	
-//				datos[6]=(cursor.getString(cursor.getColumnIndex("fNacimiento")));
+
 			 	Log.i(LOG, " seteando datos " );	
 				usuario.setUser((cursor.getString(cursor.getColumnIndex("user"))));
 				Log.i(LOG, " seteando datos 1" );
@@ -147,6 +139,32 @@ public class Calendario_MascotaDataSource {
 			
 		}
 		return usuario;
+	}
+	public boolean mofificarUsuario(String nombre,String aPaterno, String aMaterno,String email,String user,String fNacimiento, String direccion, int telefono) {
+		Boolean resultado= false;
+		
+		Log.i(LOG, " M perfil " );
+		Log.i(LOG, "datos MU = "+nombre+ aPaterno+ aMaterno+ email+ user+ fNacimiento+ direccion+ telefono);
+	    ContentValues valores = new ContentValues();
+	    Log.i(LOG, " M perfil 0 " );
+	    valores.put("nombre", nombre);
+	    Log.i(LOG, " M perfil 1 " );
+	    valores.put("aPaterno", aPaterno);
+	    Log.i(LOG, " M perfil 2 " );
+	    valores.put("aMaterno", aMaterno);
+	    Log.i(LOG, " M perfil 3 " );
+	    valores.put("email", email);
+	    Log.i(LOG, " M perfil 4 " );
+	    valores.put("fNacimiento", fNacimiento);
+	    Log.i(LOG, " M perfil 5 " );
+	    valores.put("direccion", direccion);
+	    Log.i(LOG, " M perfil 6 " );
+	    valores.put("telefono", telefono);
+	    
+	    
+	    database.update("usuario", valores, "user='" + user+"'", null);
+		resultado = true;
+		return resultado;
 	}
 	
 	
