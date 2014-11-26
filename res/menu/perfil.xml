@@ -5,7 +5,7 @@
         android:id="@+id/guardar"
         android:showAsAction="always"
         android:icon="@drawable/ic_action_content_save"
-        android:title="@string/Registro"/>
+        android:title="@string/btn_guardar"/>
     <item
         android:id="@+id/deslogueo"
         android:orderInCategory="100"

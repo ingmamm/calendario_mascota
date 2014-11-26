@@ -34,6 +34,7 @@
     <string name="Registro">Registrarse</string>
     <string name="btn_OlvideMiContrasena">¿Ovido su Contraseña?</string>
     <string name="btn_ingresar">Aceder</string> 
+    <string name="btn_guardar">Guardar</string> 
     <string name="lb_reg_nombre">Nombre</string>
     <string name="lb_reg_usuario">Usuario</string>
     <string name="lb_reg_pass">Contraseña</string>
@@ -44,5 +45,14 @@
     <string name="lb_reg_apellido_materno">Apellido Materno</string>
     <string name="lb_reg_direccion">Ingrese su direccion</string>
     <string name="btn_login">Pantalla de inicio</string>
+    <string-array name="tipoEvento">
+        <item >Paseo</item>
+	    <item >Veterinario</item>	
+	    <item >Vacuna</item>
+	    <item >Comprar alimento</item>
+	    <item >Dar medicamentos</item>
+	    <item >Desparasitación</item>
+	    <item >Peluqueria</item>
+    </string-array>
 
 </resources>
