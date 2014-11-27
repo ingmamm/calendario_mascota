@@ -167,13 +167,6 @@ public class Calendario_MascotaDataSource {
 		return resultado;
 	}
 	
-		public boolean guardarEvento(){
-			Boolean resultado= true;
-			
-			
-			
-			return resultado;
-		}
 	
 	//funciones para el login
 	
