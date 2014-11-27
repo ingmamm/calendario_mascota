@@ -1,26 +1,38 @@
 package com.example.calendario_mascota;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import com.example.calendario_mascota.db.Calendario_MascotaDataSource;
 import com.example.calendario_mascota.LoginActivity;
 
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
+import android.view.View.OnTouchListener;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistroActivity extends LoginActivity {
 
 	private static final String LOG = "RegistroAct";
-	
+	int mYear,mMonth,mDay;
 	Calendario_MascotaDataSource datasource;
-	
+	String fHoy, fSeleccionada;  
 	EditText nombre,aPaterno,aMaterno,user,pass,pass2,fNacimiento,email,direccion;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,30 +40,57 @@ public class RegistroActivity extends LoginActivity {
 		setContentView(R.layout.activity_registro);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		
+		Calendar myCalendar = Calendar.getInstance();
 		datasource =  new Calendario_MascotaDataSource(this);
 		
 		Log.i(LOG, "iniciando variables " );
 //		registro.openDB();
-		Log.i(LOG, "iniciando variables " );
+//		Log.i(LOG, "iniciando variables " );
 		nombre=(EditText)findViewById(R.id.editText1);
-		Log.i(LOG, "iniciando variables editText1" );
+//		Log.i(LOG, "iniciando variables editText1" );
 		aPaterno=(EditText)findViewById(R.id.editText2);
-		Log.i(LOG, "iniciando variables editText2" );
+//		Log.i(LOG, "iniciando variables editText2" );
 		aMaterno=(EditText)findViewById(R.id.editText3);
-		Log.i(LOG, "iniciando variables editText3" );
+//		Log.i(LOG, "iniciando variables editText3" );
 		email=(EditText)findViewById(R.id.editText4);
-		Log.i(LOG, "iniciando variables editText4" );
+//		Log.i(LOG, "iniciando variables editText4" );
 		user=(EditText)findViewById(R.id.editText5);
-		Log.i(LOG, "iniciando variables editText5" );
+//		Log.i(LOG, "iniciando variables editText5" );
 		pass=(EditText)findViewById(R.id.editText6);
-		Log.i(LOG, "iniciando variables editText6" );
+//		Log.i(LOG, "iniciando variables editText6" );
 		pass2=(EditText)findViewById(R.id.editText7);
-		Log.i(LOG, "iniciando variables editText7" );
+//		Log.i(LOG, "iniciando variables editText7" );
 		fNacimiento=(EditText)findViewById(R.id.editText8);
 		direccion=(EditText)findViewById(R.id.editText9);
-		Log.i(LOG, "iniciando variables editText8" );
+//		Log.i(LOG, "iniciando variables editText8" );
 		Log.i(LOG, "listo " );
+		
+		fNacimiento.setOnClickListener(new OnClickListener() {
+
+	        @Override
+	        public void onClick(View v) {
+	            // TODO Auto-generated method stub
+	            //To show current date in the datepicker
+	            Calendar mcurrentDate=Calendar.getInstance();
+	            mYear=mcurrentDate.get(Calendar.YEAR);
+	            mMonth=mcurrentDate.get(Calendar.MONTH);
+	            mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
+	            fHoy= generarFecha(mDay, mMonth, mYear) ;
+	        	Log.i(LOG, "listo "+fHoy );
+
+	            DatePickerDialog mDatePicker=new DatePickerDialog(RegistroActivity.this, new OnDateSetListener() {                  
+	                public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+	                    // TODO Auto-generated method stub                      
+	                    /*      Your code   to get date and time    */
+	                	fSeleccionada= generarFecha(mDay, mMonth, mYear) ;
+	                	fNacimiento.setText(fSeleccionada);
+	                	
+	                }
+	                	
+	            },mYear, mMonth, mDay);
+	            mDatePicker.setTitle("Selecione una fecha");                
+	            mDatePicker.show();  }
+	    });
 		
 		
 //		pass.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -80,6 +119,68 @@ public class RegistroActivity extends LoginActivity {
 //		
 //		registro.closeDB();
 	}
+	public String generarFecha(int selectedday,int selectedmonth,int selectedyear){
+		
+		return (String.valueOf(selectedday)+"-"+String.valueOf(selectedmonth)+"-"+String.valueOf(selectedyear));
+	} 
+	
+	public long diferenciaFechas(String inicio, String llegada){
+
+        Date fechaInicio = null;
+       Date fechaLlegada = null;
+
+        // configuramos el formato en el que esta guardada la fecha en 
+       //  los strings que nos pasan
+       SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+           // aca realizamos el parse, para obtener objetos de tipo Date de 
+           // las Strings
+           fechaInicio = formato.parse(inicio);
+           fechaLlegada = formato.parse(llegada);
+
+        } catch (ParseException e) {
+          // Log.e(TAG, "Funcion diferenciaFechas: Error Parse " + e);
+       } catch (Exception e){
+           // Log.e(TAG, "Funcion diferenciaFechas: Error " + e);
+       }
+
+        // tomamos la instancia del tipo de calendario
+       Calendar calendarInicio = Calendar.getInstance();
+       Calendar calendarFinal = Calendar.getInstance();
+
+        // Configramos la fecha del calendatio, tomando los valores del date que 
+       // generamos en el parse
+       calendarInicio.setTime(fechaInicio);
+       calendarFinal.setTime(fechaLlegada);
+
+        // obtenemos el valor de las fechas en milisegundos
+       long milisegundos1 = calendarInicio.getTimeInMillis();
+       long milisegundos2 = calendarFinal.getTimeInMillis();
+
+        // tomamos la diferencia
+       long diferenciaMilisegundos = milisegundos2 - milisegundos1;
+
+        // Despues va a depender en que formato queremos  mostrar esa 
+       // diferencia, minutos, segundo horas, dias, etc, aca van algunos 
+       // ejemplos de conversion
+
+        // calcular la diferencia en segundos
+       long diffSegundos =  Math.abs (diferenciaMilisegundos / 1000);
+
+        // calcular la diferencia en minutos
+       long diffMinutos =  Math.abs (diferenciaMilisegundos / (60 * 1000));
+       long restominutos = diffMinutos%60;
+
+        // calcular la diferencia en horas
+       long diffHoras =   (diferenciaMilisegundos / (60 * 60 * 1000));
+
+        // calcular la diferencia en dias
+       long diffdias = Math.abs ( diferenciaMilisegundos / (24 * 60 * 60 * 1000) );
+
+        // devolvemos el resultado en un string
+       return  diffdias;
+   }
 	public Boolean validarCampos() {
 	
 		Boolean faltaDato = false;

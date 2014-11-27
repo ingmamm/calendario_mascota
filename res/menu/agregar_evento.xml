@@ -2,6 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.calendario_mascota.AgregarEventoActivity" >
 
+     <item
+        android:id="@+id/guardar"
+        android:title="@string/btn_guardar"
+        android:icon="@drawable/ic_action_content_save"
+        android:showAsAction="always"/>
     <item
         android:id="@+id/deslogueo"
         android:orderInCategory="100"

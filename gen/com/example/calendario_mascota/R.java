@@ -61,11 +61,11 @@ public final class R {
         public static final int tortuga=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f090024;
-        public static final int agregar=0x7f090026;
-        public static final int agregar_mascota=0x7f090027;
+        public static final int action_settings=0x7f090025;
+        public static final int agregar=0x7f090027;
+        public static final int agregar_mascota=0x7f090028;
         public static final int button1=0x7f090006;
-        public static final int deslogueo=0x7f090020;
+        public static final int deslogueo=0x7f090021;
         public static final int editText1=0x7f090002;
         public static final int editText2=0x7f090005;
         public static final int editText3=0x7f090016;
@@ -82,15 +82,15 @@ public final class R {
         public static final int etNombre=0x7f09000c;
         public static final int etTelefono=0x7f090010;
         public static final int etUsuario=0x7f09000b;
-        public static final int guardar=0x7f090028;
+        public static final int guardar=0x7f090020;
         public static final int imageView1=0x7f090009;
         public static final int imageView2=0x7f09001d;
-        public static final int ingresar=0x7f090021;
+        public static final int ingresar=0x7f090022;
         public static final int listView1=0x7f090015;
         public static final int login=0x7f090029;
-        public static final int olvideMiContrasena=0x7f090023;
-        public static final int perfil=0x7f090025;
-        public static final int registro=0x7f090022;
+        public static final int olvideMiContrasena=0x7f090024;
+        public static final int perfil=0x7f090026;
+        public static final int registro=0x7f090023;
         public static final int spinner1=0x7f090001;
         public static final int spinner2=0x7f090008;
         public static final int textView1=0x7f090000;
